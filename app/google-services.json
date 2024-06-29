@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "438733002743",
+    "project_id": "gabychat-7bfac",
+    "storage_bucket": "gabychat-7bfac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438733002743:android:4fb3fbce1ae719e374c0f2",
+        "android_client_info": {
+          "package_name": "com.gaby.gabychat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUWDBpbS1mpNaBI-vD-loNTTI42oT5JcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
