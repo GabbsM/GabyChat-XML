@@ -10,9 +10,5 @@ data class MessageModel (
     val user: UserModel
 )
 
-data class UserModel(
-
-    val user:String,
-    val admin: Boolean
-)
+data class UserModel(val userName:String, val admin: Boolean)
 

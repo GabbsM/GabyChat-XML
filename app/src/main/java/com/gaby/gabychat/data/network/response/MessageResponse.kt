@@ -17,7 +17,7 @@ data class MessageResponse(
             msg = msg.orEmpty(),
             hour = hour ?: "no date",
             date = date.orEmpty(),
-            user = UserModel(user = user?.userName?: "guess", admin = user?.admin?: false)
+            user = UserModel(userName = user?.userName?: "usuario no definido", admin = user?.admin?: false)
         )
     }
 

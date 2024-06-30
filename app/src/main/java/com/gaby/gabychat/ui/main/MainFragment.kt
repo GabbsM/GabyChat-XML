@@ -1,23 +1,25 @@
 package com.gaby.gabychat.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.gaby.gabychat.R
 import com.gaby.gabychat.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
+    private val viewModel by viewModels<MainViewModel> ()
 
 
     override fun onCreateView(
@@ -27,14 +29,28 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         binding.btnChat.setOnClickListener {
             if (!binding.tietName.text.isNullOrEmpty()) {
+                viewModel.saveNickName(binding.tietName.text.toString())
                 findNavController().navigate(R.id.action_main_fragment_to_chat_fragment)
-                Log.i("Gabbs","Mensaje de prueba")
             }
 
         }
+
+        subscribeToState()
         return binding.root
 
 
+    }
+
+    private fun subscribeToState() {
+        lifecycleScope.launch{
+            viewModel.uiState.collect{ state ->
+                when(state){
+                    MainViewState.LOADING -> {binding.pbLoading.isVisible =  true}
+                    MainViewState.REGISTERED -> { findNavController().navigate(R.id.action_main_fragment_to_chat_fragment)}
+                    MainViewState.UNREGISTRED -> {binding.pbLoading.isVisible =  false}
+                }
+            }
+        }
     }
 
 

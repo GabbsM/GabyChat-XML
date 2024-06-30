@@ -11,6 +11,6 @@ data class MessageDto (
 
 data class UserDto(
 
-    val user:String,
+    val userName:String,
     val admin: Boolean
 )

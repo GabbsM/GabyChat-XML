@@ -1,4 +1,4 @@
-package com.gaby.gabychat.domain
+package com.gaby.gabychat.domain.model
 
 import com.gaby.gabychat.data.network.FirebaseChatService
 import javax.inject.Inject
