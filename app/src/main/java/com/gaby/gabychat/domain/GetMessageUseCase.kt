@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class GetMessageUseCase @Inject constructor(private val firebaseChatService: FirebaseChatService){
 
-    operator fun invoke(){
-        val response = firebaseChatService.getMessage()
-    }
+    operator fun invoke() = firebaseChatService.getMessage()
+
+
 }
